@@ -1,0 +1,19 @@
+{
+  "name": "todo-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix client\" \"node server/index.js\"",
+    "build": "npm run build --prefix client",
+    "install:all": "npm install && npm install --prefix client"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

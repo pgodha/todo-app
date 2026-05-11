@@ -1,0 +1,61 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Light theme */
+  --bg-page: #f0f2f5;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --border-strong: #9ca3af;
+  --hover: #f9fafb;
+  --text-primary: #111827;
+  --text-muted: #9ca3af;
+  --accent-start: #7c3aed;
+  --accent-end: #2563eb;
+  --accent-glow: rgba(124, 58, 237, 0.12);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color-scheme: light dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: #0f1117;
+    --surface: #1a1d27;
+    --border: #2d3148;
+    --border-strong: #4b5563;
+    --hover: #1f2235;
+    --text-primary: #f3f4f6;
+    --text-muted: #6b7280;
+    --accent-start: #a78bfa;
+    --accent-end: #60a5fa;
+    --accent-glow: rgba(167, 139, 250, 0.15);
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .action-btn.delete:hover {
+    background: rgba(239, 68, 68, 0.15) !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg-page);
+}
+
+#root {
+  width: 100%;
+}
+
+button {
+  font-family: inherit;
+}
+
+input {
+  font-family: inherit;
+}
