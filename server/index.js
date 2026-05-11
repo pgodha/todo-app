@@ -1,15 +1,11 @@
-import express from 'express'
-import cors from 'cors'
-import todosRouter from './routes/todos.js'
+import { ApolloServer } from '@apollo/server'
+import { startStandaloneServer } from '@apollo/server/standalone'
+import { typeDefs, resolvers } from './graphql/schema.js'
 
-const app = express()
-const PORT = 3001
+const server = new ApolloServer({ typeDefs, resolvers })
 
-app.use(cors({ origin: 'http://localhost:5173' }))
-app.use(express.json())
-
-app.use('/api/todos', todosRouter)
-
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`)
+const { url } = await startStandaloneServer(server, {
+  listen: { port: 3001 },
 })
+
+console.log(`GraphQL server ready at ${url}`)
