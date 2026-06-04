@@ -1,27 +1,20 @@
-import { useState } from 'react'
-
 export default function TodoInput({ onAdd }) {
-  const [value, setValue] = useState('')
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    const trimmed = value.trim()
+  function handleAction(formData) {
+    const trimmed = formData.get('text').trim()
     if (!trimmed) return
     onAdd(trimmed)
-    setValue('')
   }
 
   return (
-    <form className="todo-input-form" onSubmit={handleSubmit}>
+    <form className="todo-input-form" action={handleAction}>
       <input
         className="todo-input"
         type="text"
+        name="text"
         placeholder="What needs to be done?"
-        value={value}
-        onChange={e => setValue(e.target.value)}
         autoFocus
       />
-      <button className="add-btn" type="submit" disabled={!value.trim()}>
+      <button className="add-btn" type="submit">
         Add
       </button>
     </form>
